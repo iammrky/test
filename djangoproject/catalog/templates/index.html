@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Photo List</h1>
+
+    <p><strong>Photos:</strong> {{ photo_all}} <strong>Albums:</strong> {{ num_album }}</p>
+    
+
+    {% if num_photo %}
+    <ul>
+    <p>Title | Author | Album | Size</p>	
+      {% for photo in num_photo %}
+      <li>
+        <a href=""><img scr="{{ photo.image }}"/> {{ photo.title }}</a> | {{photo.author}} | {{photo.album}} | {{photo.image.size}}
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no books in the library.</p>
+    {% endif %}       
+{% endblock %}
